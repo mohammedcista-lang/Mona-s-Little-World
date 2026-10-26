@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff1f7">
+<meta name="description" content="مساحة منى الخاصة للراحة والقراءة والموسيقى والأسئلة الطبية وهمسات النقاب.">
+<title>مساحة الراحة والهدوء | منى 🩺</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#e94f91;
+  --pink-dark:#c92f75;
+  --purple:#8264d9;
+  --ink:#392d48;
+  --muted:#82768e;
+  --line:#f4dce9;
+  --shadow:0 16px 42px rgba(137,76,119,.12);
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:"Cairo",system-ui,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 10% 8%,#ffe2ef 0,transparent 32%),
+    radial-gradient(circle at 90% 20%,#e9e2ff 0,transparent 30%),
+    linear-gradient(145deg,#fff9fc,#f8f5ff 55%,#fff8f0);
+  overflow-x:hidden;
+}
+
+button,input{font:inherit}
+button{cursor:pointer;touch-action:manipulation}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible{
+  outline:3px solid #ad8cf3;
+  outline-offset:3px;
+}
+
+.floaties{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+}
+
+.floaty{
+  position:absolute;
+  bottom:-50px;
+  opacity:.25;
+  animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+  to{
+    transform:translateY(-115vh) rotate(25deg);
+    opacity:0;
+  }
+}
+
+.wrap{
+  position:relative;
+  z-index:1;
+  width:min(100% - 24px,760px);
+  margin:auto;
+  padding:15px 0 30px;
+}
+
+.hero{
+  text-align:center;
+  padding:22px 12px 18px;
+}
+
+.eyebrow{
+  display:inline-block;
+  padding:6px 13px;
+  border:1px solid #f4d3e4;
+  background:#fff9fc;
+  border-radius:99px;
+  color:var(--pink-dark);
+  font-size:12px;
+  font-weight:800;
+}
+
+.hero-heart{
+  font-size:52px;
+  line-height:1.3;
+  filter:drop-shadow(0 8px 15px #ee85b555);
+  animation:heartbeat 1.8s ease-in-out infinite;
+  margin:7px 0;
+}
+
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+}
+
+h1{
+  font-size:clamp(25px,5vw,36px);
+  margin:5px 0;
+  color:#543754;
+  font-weight:800;
+}
+
+.hero p{
+  margin:7px auto 0;
+  max-width:540px;
+  line-height:2;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.nav{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+  padding:7px;
+  background:#ffffffc9;
+  border:1px solid #fff;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  margin:12px 0 18px;
+  backdrop-filter:blur(12px);
+}
+
+.nav button{
+  border:0;
+  border-radius:14px;
+  padding:11px 5px;
+  background:transparent;
+  color:#796a85;
+  font-size:12px;
+  font-weight:800;
+  transition:.2s;
+}
+
+.nav button.active{
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:white;
+  box-shadow:0 7px 16px #c768a83b;
+}
+
+.panel{
+  display:none;
+  background:rgba(255,255,255,.90);
+  border:1px solid #fff;
+  border-radius:24px;
+  padding:clamp(16px,4vw,25px);
+  box-shadow:var(--shadow);
+  margin-bottom:16px;
+  backdrop-filter:blur(12px);
+}
+
+.panel.active{
+  display:block;
+  animation:appear .25s ease;
+}
+
+@keyframes appear{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:none}
+}
+
+.panel h2{
+  font-size:20px;
+  margin:0 0 7px;
+}
+
+.sub{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.9;
+  margin:0 0 15px;
+}
+
+.btn{
+  border:0;
+  border-radius:14px;
+  padding:12px 15px;
+  color:white;
+  background:linear-gradient(135deg,var(--pink),var(--pink-dark));
+  font-weight:800;
+  box-shadow:0 7px 16px #db589033;
+  transition:transform .15s;
+}
+
+.btn:active{transform:scale(.97)}
+
+.btn.secondary{
+  background:linear-gradient(135deg,#9d83ec,#7759d0);
+}
+
+.btn.soft{
+  background:#fff0f7;
+  color:#b52e70;
+  border:1px solid #f7d0e3;
+  box-shadow:none;
+}
+
+.btn.full{
+  width:100%;
+  margin-top:12px;
+}
+
+.status{
+  background:#fff1f7;
+  border:1px solid #f8d4e6;
+  color:#b63475;
+  padding:11px;
+  border-radius:14px;
+  font-size:13px;
+  font-weight:700;
+  text-align:center;
+  margin:12px 0;
+  line-height:1.9;
+}
+
+.tiny-note{
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.9;
+  margin-top:12px;
+}
+
+.list{
+  display:grid;
+  gap:9px;
+}
+
+.list-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:13px 14px;
+  background:#fffafd;
+  border:1px solid var(--line);
+  border-radius:15px;
+  text-decoration:none;
+  color:var(--ink);
+  font-size:13px;
+  font-weight:800;
+  transition:.2s;
+}
+
+.list-item:hover{
+  border-color:#e7a9cb;
+  transform:translateY(-1px);
+}
+
+.list-item small{
+  display:block;
+  color:var(--muted);
+  font-weight:500;
+  margin-top:3px;
+}
+
+.arrow{
+  color:var(--pink-dark);
+  white-space:nowrap;
+  font-size:12px;
+}
+
+.player{
+  padding:18px;
+  border:1px solid #f4dce9;
+  border-radius:20px;
+  background:linear-gradient(145deg,#fff,#fff4fa);
+  text-align:center;
+}
+
+.disc{
+  width:86px;
+  height:86px;
+  margin:0 auto 12px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:36px;
+  background:radial-gradient(circle,#fff 0 15%,#f8bddb 16% 30%,#c6b1f4 31% 55%,#f5b8d8 56%);
+  box-shadow:0 8px 20px #bd75a52b;
+}
+
+.disc.playing{animation:spin 5s linear infinite}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.track-title{font-weight:800;font-size:16px}
+.track-artist{color:var(--muted);font-size:12px;margin-top:3px}
+
+.time-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:10px;
+  color:var(--muted);
+  margin-top:5px;
+}
+
+.progress{
+  width:100%;
+  accent-color:var(--pink);
+  cursor:pointer;
+  margin:12px 0 2px;
+}
+
+.player-controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:12px 0;
+}
+
+.icon-btn{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:#f9e7f1;
+  color:#8d3c70;
+  font-size:18px;
+}
+
+.icon-btn.main{
+  width:54px;
+  height:54px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  font-size:21px;
+}
+
+.playlist{
+  display:grid;
+  gap:8px;
+  margin-top:14px;
+}
+
+.track{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  text-align:right;
+  width:100%;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:#fffafd;
+  color:var(--ink);
+  font-size:13px;
+  font-weight:700;
+}
+
+.track.active{
+  border-color:#e98aba;
+  background:#fff0f7;
+  color:#b52e70;
+}
+
+.message-card{
+  text-align:center;
+  border-radius:20px;
+  padding:22px 17px;
+  background:linear-gradient(145deg,#fff3f9,#f4efff);
+  border:1px solid #f5ddec;
+  line-height:2.2;
+  font-size:15px;
+  font-weight:700;
+  min-height:140px;
+  display:grid;
+  place-items:center;
+}
+
+.message-icon{font-size:35px;margin-bottom:7px}
+
+.poem{
+  margin:18px 0 8px;
+  padding:19px;
+  border-right:4px solid #d989b9;
+  border-radius:15px;
+  background:#ffffffa6;
+  text-align:center;
+  color:#79647f;
+  line-height:2.2;
+  font-size:13px;
+}
+
+footer{
+  text-align:center;
+  color:#9b829a;
+  font-size:12px;
+  padding:14px;
+  line-height:2;
+}
+
+/* شاشة الدخول */
+
+.lock{
+  position:fixed;
+  inset:0;
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:linear-gradient(145deg,#fff0f7ed,#eee8ffef);
+  backdrop-filter:blur(16px);
+}
+
+.lock-card{
+  width:min(100%,390px);
+  padding:28px 23px;
+  text-align:center;
+  background:#ffffffed;
+  border:1px solid #fff;
+  border-radius:27px;
+  box-shadow:0 25px 70px #8b5d8c26;
+}
+
+.lock-card h2{margin:0 0 7px;font-size:21px}
+
+.lock-card p{
+  font-size:13px;
+  line-height:1.9;
+  color:var(--muted);
+}
+
+.lock-input{
+  width:100%;
+  padding:13px 15px;
+  border:1px solid #ecd6e5;
+  border-radius:13px;
+  background:#fff9fc;
+  text-align:center;
+  margin:9px 0 3px;
+}
+
+.error{
+  min-height:22px;
+  color:#c32c60;
+  font-size:12px;
+  margin-top:8px;
+}
+
+.hidden{display:none!important}
+
+/* لعبة الأسئلة الطبية */
+
+.quiz-progress{
+  height:8px;
+  border-radius:99px;
+  overflow:hidden;
+  background:#f4e6f0;
+  margin:12px 0 18px;
+}
+
+.quiz-progress-bar{
+  width:0;
+  height:100%;
+  background:linear-gradient(90deg,var(--pink),var(--purple));
+  transition:width .3s;
+}
+
+.quiz-question{
+  font-size:17px;
+  font-weight:800;
+  line-height:2;
+  margin:16px 0;
+}
+
+.quiz-options{
+  display:grid;
+  gap:10px;
+}
+
+.quiz-option{
+  width:100%;
+  border:1px solid #f0d9e7;
+  background:#fffafd;
+  color:var(--ink);
+  padding:13px;
+  border-radius:14px;
+  text-align:right;
+  font-weight:700;
+  line-height:1.8;
+}
+
+.quiz-option:disabled{cursor:default;opacity:1}
+
+.quiz-option.correct{
+  border-color:#69b88a;
+  background:#e9f9ef;
+  color:#216b3e;
+}
+
+.quiz-option.wrong{
+  border-color:#e99b9b;
+  background:#fff0f0;
+  color:#a42f3d;
+}
+
+.quiz-score{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  font-size:12px;
+  font-weight:800;
+  color:#7653b7;
+}
+
+.quiz-result{
+  text-align:center;
+  padding:20px 12px;
+  line-height:2;
+}
+
+/* قسم همسات النقاب */
+
+.veil-card{
+  position:relative;
+  overflow:hidden;
+  min-height:230px;
+  padding:25px 19px;
+  margin-top:18px;
+  text-align:center;
+  border-radius:24px;
+  border:1px solid #ead5e5;
+  background:
+    radial-gradient(circle at top right,#f7d9e8,transparent 55%),
+    linear-gradient(145deg,#fffaff,#f0eaff);
+  box-shadow:0 12px 30px rgba(100,65,110,.10);
+}
+
+.veil-decoration{
+  font-size:27px;
+  margin-bottom:15px;
+}
+
+.veil-number{
+  color:#a04d83;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.veil-quote{
+  color:#573b58;
+  font-size:18px;
+  font-weight:800;
+  line-height:2.1;
+  white-space:pre-line;
+  transition:opacity .25s ease;
+  position:relative;
+  z-index:1;
+}
+
+.veil-signature{
+  margin-top:22px;
+  color:#b13f7b;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.veil-card::before{
+  content:"❀";
+  position:absolute;
+  top:-12px;
+  left:10px;
+  font-size:55px;
+  color:rgba(177,63,123,.10);
+  transform:rotate(-20deg);
+  pointer-events:none;
+}
+
+.veil-controls{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+
+.veil-controls .btn{flex:1}
+
+@media(max-width:430px){
+  .nav{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nav button{font-size:13px}
+  .wrap{width:min(100% - 18px,760px)}
+  .veil-quote{font-size:16px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="floaties" id="floaties" aria-hidden="true"></div>
+
+<!-- شاشة الدخول -->
+<div class="lock" id="lockScreen">
+  <div class="lock-card">
+    <div class="hero-heart">♥️</div>
+    <span class="eyebrow">مساحتك الخاصة يا منى</span>
+    <h2>أهلاً بيكِ في ركنك الهادئ 🩺</h2>
+    <p>
+      خدي نفس عميق، وخلي الدنيا برة شوية.
+      هنا مساحة صغيرة للراحة والقراءة والموسيقى والكلام الجميل.
+    </p>
+
+    <form id="loginForm">
+      <input
+        class="lock-input"
+        id="passInput"
+        type="password"
+        autocomplete="current-password"
+        placeholder="كلمة السر"
+        aria-label="كلمة السر"
+        required
+      >
+      <button class="btn full" type="submit">افتحي مساحتك ✨</button>
+    </form>
+
+    <div class="error" id="errorMsg" role="status" aria-live="polite"></div>
+    <p class="tiny-note">مساحة صغيرة للراحة والابتسامة 🌷</p>
+  </div>
+</div>
+
+<main class="wrap hidden" id="mainContent">
+
+  <header class="hero">
+    <span class="eyebrow">ركن صغير معمول بمحبة 💗</span>
+    <div class="hero-heart">♥️</div>
+    <h1>مساحة الراحة والهدوء</h1>
+    <p>
+      يا منى، دي مساحتك الخاصة عشان تفصلي من تعب اليوم،
+      تقرئي شوية، تسمعي أغاني بتحبيها،
+      تختبري معلوماتك الطبية، وتلقَي كلاماً لطيفاً يفرّح قلبك. 🌸
+    </p>
+  </header>
+
+  <nav class="nav" aria-label="أقسام الموقع">
+    <button class="active" data-section="gameSec">🩺 التحدي الطبي</button>
+    <button data-section="bookSec">📚 الكتب</button>
+    <button data-section="musicSec">🎵 الأغاني</button>
+    <button data-section="msgSec">💌 الرسائل</button>
+    <button data-section="veilSec">🖤 همسات النقاب</button>
+  </nav>
+
+  <!-- التحدي الطبي -->
+  <section class="panel active" id="gameSec">
+    <h2>🩺 تحدّي منى الطبي</h2>
+    <p class="sub">
+      أسئلة طبية عامة للتعلّم والمراجعة، في أجواء خفيفة ولطيفة.
+      كل جولة فيها 10 أسئلة.
+    </p>
+
+    <div class="quiz-score">
+      <span id="quizCounter">السؤال 1 من 10</span>
+      <span>⭐ النقاط: <span id="quizScore">0</span></span>
+    </div>
+
+    <div class="quiz-progress">
+      <div class="quiz-progress-bar" id="quizProgressBar"></div>
+    </div>
+
+    <div id="quizArea">
+      <div class="quiz-question" id="quizQuestion">
+        جاهزة يا دكتورة المستقبل؟ 💗
+      </div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="status" id="quizFeedback" role="status" aria-live="polite">
+        اضغطي على زر البداية عشان نبدأ التحدي.
+      </div>
+      <button class="btn full" id="quizStartBtn">ابدئي التحدي 🩺</button>
+      <button class="btn full hidden" id="quizNextBtn">السؤال البعده ➜</button>
+    </div>
+
+    <p class="tiny-note">
+      الأسئلة لأغراض تعليمية عامة، وما بتغني عن المراجع الطبية المعتمدة.
+    </p>
+  </section>
+
+  <!-- الكتب -->
+  <section class="panel" id="bookSec">
+    <h2>📚 مكتبة منى الهادئة</h2>
+    <p class="sub">
+      اختاري كتاباً لفتحه في تبويب جديد.
+      لازم تكون ملفات PDF مرفوعة في نفس مجلد الموقع وبالأسماء المكتوبة هنا.
+    </p>
+
+    <div class="list">
+      <a class="list-item" href="./lanak.pdf#view=FitH" target="_blank" rel="noopener">
+        <span>📖 كتاب لأنك الله<small>قراءة وتأمل</small></span>
+        <span class="arrow">افتحي الكتاب ↗</span>
+      </a>
+
+      <a class="list-item" href="./ahobak.pdf#view=FitH" target="_blank" rel="noopener">
+        <span>💗 كتاب أحبك وكفى<small>صفحات هادئة</small></span>
+        <span class="arrow">افتحي الكتاب ↗</span>
+      </a>
+
+      <a class="list-item" href="./azazil.pdf#view=FitH" target="_blank" rel="noopener">
+        <span>📘 رواية عزازيل<small>وقت خاص للقراءة</small></span>
+        <span class="arrow">افتحي الكتاب ↗</span>
+      </a>
+
+      <a class="list-item" href="./quran.pdf#view=FitH" target="_blank" rel="noopener">
+        <span>🌿 القرآن الكريم<small>قراءة وطمأنينة</small></span>
+        <span class="arrow">افتحي الكتاب ↗</span>
+      </a>
+
+      <a class="list-item" href="./TheQuran.pdf#view=FitH" target="_blank" rel="noopener">
+        <span>📗 The Quran<small>نسخة أخرى من المصحف</small></span>
+        <span class="arrow">افتحي الكتاب ↗</span>
+      </a>
+    </div>
+
+    <p class="tiny-note">
+      لو كتاب ما فتح، راجعي اسم الملف وحالة الأحرف في GitHub.
+      أسماء الملفات لازم تطابق الروابط حرفياً.
+    </p>
+  </section>
+
+  <!-- الأغاني -->
+  <section class="panel" id="musicSec">
+    <h2>🎵 أغاني الحب والروقان</h2>
+    <p class="sub">
+      اختاري أغنية من القائمة. المتصفح ممكن يحتاج أول ضغطة منك قبل السماح بالصوت.
+    </p>
+
+    <div class="player">
+      <div class="disc" id="disc">🎶</div>
+      <div class="track-title" id="playerTitle">اختاري أغنية من القائمة</div>
+      <div class="track-artist" id="playerArtist">قائمة منى الخاصة 💗</div>
+
+      <audio id="audioPlayer" preload="metadata"></audio>
+
+      <input
+        class="progress"
+        id="progressRange"
+        type="range"
+        min="0"
+        max="1000"
+        value="0"
+        aria-label="تقدم الأغنية"
+      >
+
+      <div class="time-row">
+        <span id="currentTime">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="player-controls">
+        <button class="icon-btn" id="prevBtn" aria-label="الأغنية السابقة">⏮</button>
+        <button class="icon-btn main" id="playPauseBtn" aria-label="تشغيل">▶</button>
+        <button class="icon-btn" id="nextBtn" aria-label="الأغنية التالية">⏭</button>
+      </div>
+
+      <div class="status" id="audioStatus" role="status" aria-live="polite">
+        اختاري أغنية للبدء 🎧
+      </div>
+    </div>
+
+    <div class="playlist" id="playlist">
+      <button class="track" data-track="0">
+        <span>🎶 تامر حسني</span><span>▶</span>
+      </button>
+      <button class="track" data-track="1">
+        <span>🎵 لما تكوني</span><span>▶</span>
+      </button>
+      <button class="track" data-track="2">
+        <span>💖 شيرين عبد الوهاب</span><span>▶</span>
+      </button>
+      <button class="track" data-track="3">
+        <span>🌟 أحمد سعد</span><span>▶</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- الرسائل -->
+  <section class="panel" id="msgSec">
+    <h2>💌 صندوق الرسائل الدافئة</h2>
+    <p class="sub">
+      كل مرة افتحي رسالة جديدة وخدي منها ابتسامة صغيرة.
+    </p>
+
+    <div class="message-card">
+      <div>
+        <div class="message-icon" id="messageIcon">💌</div>
+        <div id="dailyMsg">
+          يا منى، أتمنى ليكِ يوماً مليئاً بالراحة والطمأنينة،
+          وخطوات تقرّبك من كل أحلامك. 💗
+        </div>
+      </div>
+    </div>
+
+    <button class="btn full" id="newMessageBtn">
+      افتحي رسالة جديدة ✉️
+    </button>
+  </section>
+
+  <!-- همسات النقاب -->
+  <section class="panel" id="veilSec">
+    <h2>🖤 همسات عن النقاب</h2>
+    <p class="sub">
+      كلمات عن الحياء والوقار وجمال الروح،
+      إهداء خاص لمنى 🌸
+    </p>
+
+    <div class="veil-card">
+      <div class="veil-decoration">🖤 🌹 🖤</div>
+      <div class="veil-number" id="veilNumber">همسة 1 من 25</div>
+
+      <div class="veil-quote" id="veilQuote">
+        يا صاحبة النقاب، يا زهرةً صانها الحياء،
+        ويا حكاية جمالٍ يعجز عن وصفها الكلام.
+      </div>
+
+      <div class="veil-signature">إلى منى بكل الود ❤️</div>
+    </div>
+
+    <div class="veil-controls">
+      <button class="btn secondary" id="prevVeilQuote">❮ السابقة</button>
+      <button class="btn" id="newVeilQuote">همسة جديدة 🌸</button>
+    </div>
+
+    <button class="btn full" id="randomVeilQuote">
+      ✨ اختاري لي همسة عشوائية
+    </button>
+
+    <p class="tiny-note">
+      هذه العبارات مكتوبة خصيصاً للموقع، وليست منسوبة إلى شعراء بعينهم.
+    </p>
+  </section>
+
+  <div class="poem">
+    يا منى، خلي الأمل في دربك نور<br>
+    وخلي الطموح في قلبك يزهر كل يوم<br>
+    ربنا يكتب ليكِ الخير والراحة والسرور 💗
+  </div>
+
+  <footer>
+    صُنع بكل محبة لابتسامة منى ♥️<br>
+    <span>خدي راحتك، المساحة دي ليكِ.</span>
+  </footer>
+
+</main>
+
+<script>
+"use strict";
+
+/* =========================
+   إعدادات الموقع
+========================= */
+
+const PASSWORD = "mona2006/9/30";
+
+const $ = id => document.getElementById(id);
+
+/* =========================
+   شاشة الدخول
+========================= */
+
+$("loginForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  if($("passInput").value.trim() === PASSWORD){
+    $("lockScreen").classList.add("hidden");
+    $("mainContent").classList.remove("hidden");
+    $("errorMsg").textContent = "";
+    drawQuizWelcome();
+  }else{
+    $("errorMsg").textContent = "كلمة السر ما صحيحة، جرّبي تاني 💗";
+    $("passInput").select();
+  }
+});
+
+/* =========================
+   التنقل بين الأقسام
+========================= */
+
+document.querySelectorAll(".nav button").forEach(button=>{
+  button.addEventListener("click",()=>{
+    document.querySelectorAll(".nav button").forEach(btn=>{
+      btn.classList.toggle("active",btn === button);
+    });
+
+    document.querySelectorAll(".panel").forEach(panel=>{
+      panel.classList.toggle("active",panel.id === button.dataset.section);
+    });
+  });
+});
+
+/* =========================
+   خلفية القلوب والزهور
+========================= */
+
+const floaties = $("floaties");
+
+["♥","♡","✦","🌸","♥","✧","♡"].forEach((symbol,i)=>{
+  const el = document.createElement("span");
+  el.className = "floaty";
+  el.textContent = symbol;
+  el.style.left = (5 + i*14) + "%";
+  el.style.animationDuration = (13 + i*2) + "s";
+  el.style.animationDelay = (-i*2.1) + "s";
+  el.style.fontSize = (15 + (i%3)*8) + "px";
+  floaties.appendChild(el);
+});
+
+/* =========================
+   25 همسة عن النقاب
+========================= */
+
+const veilQuotes = [
+  "يا صاحبة النقاب، يا زهرةً صانها الحياء، ويا حكاية جمالٍ يعجز عن وصفها الكلام.",
+
+  "يا منى، في نقابكِ وقار، وفي قلبكِ نور، وفي طيبة روحكِ ألف قصيدة حب.",
+
+  "ما كل جمالٍ تراه العيون، فبعض الجمال يسكن الروح، وبعضه يُعرف من طيب الأخلاق.",
+
+  "يا صاحبة النقاب، كأنكِ وردةٌ اختارت أن تحتفظ بعطرها، وأن تترك أثرها في القلوب.",
+
+  "في حيائكِ معنى جميل، وفي هدوئكِ سكينة، وفي حضوركِ شيء يجعل للكلام قيمة.",
+
+  "يا منى، زادكِ الله علماً ونوراً، وجعل قلبكِ مطمئناً، ودربكِ إلى أحلامكِ مليئاً بالخير.",
+
+  "للنقاب حكاية، وللحياء جمال، وللقلب الطيب لغة لا تحتاج إلى شرحٍ طويل.",
+
+  "يا صاحبة الستر، ما أجمل أن يجتمع فيكِ جمال الخُلُق، ورجاحة العقل، ورقة القلب.",
+
+  "إن كان للورد لونٌ يميّزه، فللأخلاق نورٌ يرفع صاحبها، وللحياء جمالٌ لا يذبل.",
+
+  "يا منى، أنتِ حكاية لطيفة؛ فيها طموح طالبة الطب، وحنان القلب، وجمال الروح.",
+
+  "ليس الجمال فيما يظهر للناس وحده، بل فيما تخبئه الروح من رحمة، وما يحمله القلب من وفاء.",
+
+  "يا صاحبة الستر، أسأل الله أن يجعل أيامكِ كالأزهار، وقلبكِ كالفجر، ومستقبلكِ أجمل مما تتمنين.",
+
+  "في مشيتكِ الهادئة وقار، وفي حديثكِ أدب، وفي طموحكِ حكاية فتاة تستحق أن تفخر بنفسها.",
+
+  "يا منى، كوني وردةً في أخلاقكِ، وقويةً في علمكِ، رحيمةً في قلبكِ، واثقةً في طريقكِ.",
+
+  "ما أجمل الحياء حين يصاحبه العلم، وما أروع الستر حين يكون اختياراً نابعاً من القلب.",
+
+  "يا صاحبة النقاب، لا تحتاجين إلى قصيدةٍ تصنع جمالكِ، فالأخلاق الطيبة قصيدةٌ تمشي على الأرض.",
+
+  "في عيون المحبة، أجمل ما فيكِ ليس مظهراً وحده، بل قلبٌ طيب وعقلٌ طموح وروحٌ نقية.",
+
+  "يا منى، عسى طريق الطب يوصلكِ إلى حلمكِ، وعسى علمكِ يكون سبباً في تخفيف آلام الناس.",
+
+  "أحب فيكِ طموحكِ قبل إنجازكِ، وصبركِ قبل وصولكِ، وطيبة قلبكِ قبل كل وصفٍ جميل.",
+
+  "يا صاحبة الحياء، كوني فخورةً بنفسكِ، فقيمتكِ في أخلاقكِ وعلمكِ وأثركِ الطيب.",
+
+  "كأن الورد تعلّم منكِ الرقة، وكأن الدعاء اختار اسمكِ ليكون أمنيةً جميلة في آخر الليل.",
+
+  "يا منى، لكِ من القلب دعوةٌ صادقة: أن يرافقكِ التوفيق، وتحرسكِ العافية، وتتحقق أحلامكِ.",
+
+  "ليس النقاب وحده ما يروي الحكاية، بل النية الطيبة، وحسن الخلق، والرحمة التي يحملها القلب.",
+
+  "يا فتاة الطب، في يديكِ علمٌ يُرجى به النفع، وفي قلبكِ رحمةٌ تجعل للعلم معنى أجمل.",
+
+  "يا منى، إن كان للحياء تاجٌ من المعاني، فأجمله تواضعٌ وصدقٌ ورحمة، وإن كان للحب دعاءٌ، فأنتِ في دعائي بالخير."
+];
+
+let veilIndex = 0;
+
+function showVeilQuote(index){
+  veilIndex = (index + veilQuotes.length) % veilQuotes.length;
+
+  $("veilQuote").style.opacity = "0";
+
+  setTimeout(()=>{
+    $("veilQuote").textContent = veilQuotes[veilIndex];
+    $("veilNumber").textContent =
+      `همسة ${veilIndex+1} من ${veilQuotes.length}`;
+
+    $("veilQuote").style.opacity = "1";
+  },150);
+}
+
+$("newVeilQuote").addEventListener("click",()=>{
+  showVeilQuote(veilIndex+1);
+});
+
+$("prevVeilQuote").addEventListener("click",()=>{
+  showVeilQuote(veilIndex-1);
+});
+
+$("randomVeilQuote").addEventListener("click",()=>{
+  let randomIndex;
+
+  do{
+    randomIndex = Math.floor(Math.random()*veilQuotes.length);
+  }while(veilQuotes.length>1 && randomIndex===veilIndex);
+
+  showVeilQuote(randomIndex);
+});
+
+/* =========================
+   الرسائل
+========================= */
+
+const messages = [
+  "يا منى، ابتسامتك بتستاهل كل لحظة راحة في الدنيا. خدي نفس عميق وافتكري إنك قدّها وقدود. 💗",
+
+  "مهما كان اليوم طويل، ما تنسي تدي نفسك شوية حنية وراحة. تعبك واجتهادك يستاهلوا الفخر. 🌷",
+
+  "أتمنى ليكِ يوم مليان سكينة، وضحكة سمحة، وحاجات صغيرة تفرّح قلبك. 🌸",
+
+  "لو الدنيا بقت زحمة، خدي استراحة صغيرة. ما مطلوب منك تكوني قوية كل لحظة. 💕",
+
+  "يا منى، وجودك جميل، وضحكتك بتخلّي التفاصيل العادية مميزة. ✨",
+
+  "خدي وقتك، اشربي موية، وارتاحي شوية. إنتِ كمان تستاهلي اللطف والراحة. 🌷",
+
+  "يا دكتورة المستقبل، خطوة صغيرة كل يوم ممكن تقرّبك من حلم كبير. واصلي واجتهدي. 🩺",
+
+  "ربنا يفتح ليك أبواب الخير، ويجعل أيامك مليانة راحة وتوفيق ورضا. 🤍"
+];
+
+$("newMessageBtn").addEventListener("click",()=>{
+  const current = $("dailyMsg").textContent;
+  let next = current;
+
+  while(messages.length>1 && next===current){
+    next = messages[Math.floor(Math.random()*messages.length)];
+  }
+
+  $("dailyMsg").textContent = next;
+
+  const icons = ["💌","💗","🌷","🩺","✨"];
+  $("messageIcon").textContent =
+    icons[Math.floor(Math.random()*icons.length)];
+});
+
+/* =========================
+   مشغل الأغاني
+========================= */
+
+const tracks = [
+  {src:"Tamerd.mp3",title:"تامر حسني",artist:"قائمة منى الخاصة ♥️"},
+  {src:"Lmatkony.mp3",title:"لما تكوني",artist:"أغنية رومانسية ✨"},
+  {src:"Sherine.mp3",title:"شيرين عبد الوهاب",artist:"مشاعر 🌸"},
+  {src:"Ahmedsaad.mp3",title:"أحمد سعد",artist:"أغنية حب 🌟"}
+];
+
+const audio = $("audioPlayer");
+let trackIndex = -1;
+
+function formatTime(seconds){
+  if(!Number.isFinite(seconds) || seconds<0) return "0:00";
+
+  const minutes = Math.floor(seconds/60);
+  const secs = Math.floor(seconds%60);
+
+  return `${minutes}:${String(secs).padStart(2,"0")}`;
+}
+
+function updateTrackUI(){
+  document.querySelectorAll(".track").forEach((el,i)=>{
+    el.classList.toggle("active",i===trackIndex);
+  });
+
+  $("playerTitle").textContent =
+    trackIndex<0 ? "اختاري أغنية من القائمة" : tracks[trackIndex].title;
+
+  $("playerArtist").textContent =
+    trackIndex<0 ? "قائمة منى الخاصة 💗" : tracks[trackIndex].artist;
+}
+
+async function selectTrack(index,autoplay=true){
+  trackIndex = (index+tracks.length)%tracks.length;
+
+  audio.src = tracks[trackIndex].src;
+  audio.load();
+
+  updateTrackUI();
+
+  $("progressRange").value = 0;
+  $("currentTime").textContent = "0:00";
+  $("duration").textContent = "0:00";
+  $("audioStatus").textContent = "جاري تحميل الأغنية…";
+
+  if(autoplay){
+    try{
+      await audio.play();
+    }catch(error){
+      $("audioStatus").textContent =
+        "تعذّر التشغيل. تأكدي من وجود ملف MP3 واسمه الصحيح في GitHub.";
+    }
+  }
+}
+
+$("playlist").addEventListener("click",e=>{
+  const button = e.target.closest("[data-track]");
+  if(button) selectTrack(Number(button.dataset.track));
+});
+
+$("playPauseBtn").addEventListener("click",async()=>{
+  if(trackIndex<0){
+    selectTrack(0);
+    return;
+  }
+
+  if(audio.paused){
+    try{
+      await audio.play();
+    }catch(error){
+      $("audioStatus").textContent =
+        "تعذّر التشغيل. راجعي اسم ملف الأغنية.";
+    }
+  }else{
+    audio.pause();
+  }
+});
+
+$("nextBtn").addEventListener("click",()=>{
+  selectTrack(trackIndex<0 ? 0 : trackIndex+1);
+});
+
+$("prevBtn").addEventListener("click",()=>{
+  if(trackIndex>=0 && audio.currentTime>3){
+    audio.currentTime=0;
+    return;
+  }
+
+  selectTrack(trackIndex<0 ? 0 : trackIndex-1);
+});
+
+audio.addEventListener("play",()=>{
+  $("playPauseBtn").textContent = "Ⅱ";
+  $("playPauseBtn").setAttribute("aria-label","إيقاف مؤقت");
+  $("disc").classList.add("playing");
+  $("audioStatus").textContent = "الأغنية شغالة 🎶";
+});
+
+audio.addEventListener("pause",()=>{
+  $("playPauseBtn").textContent = "▶";
+  $("playPauseBtn").setAttribute("aria-label","تشغيل");
+  $("disc").classList.remove("playing");
+});
+
+audio.addEventListener("loadedmetadata",()=>{
+  $("duration").textContent = formatTime(audio.duration);
+});
+
+audio.addEventListener("timeupdate",()=>{
+  $("currentTime").textContent = formatTime(audio.currentTime);
+
+  if(
+    Number.isFinite(audio.duration) &&
+    audio.duration>0 &&
+    !$("progressRange").matches(":active")
+  ){
+    $("progressRange").value =
+      String(Math.round(audio.currentTime/audio.duration*1000));
+  }
+});
+
+$("progressRange").addEventListener("input",()=>{
+  if(Number.isFinite(audio.duration) && audio.duration>0){
+    audio.currentTime =
+      Number($("progressRange").value)/1000*audio.duration;
+  }
+});
+
+audio.addEventListener("ended",()=>{
+  selectTrack(trackIndex+1);
+});
+
+audio.addEventListener("error",()=>{
+  if(trackIndex>=0){
+    $("audioStatus").textContent =
+      `تعذّر تحميل ${tracks[trackIndex].src}. راجعي اسم الملف ومكانه.`;
+  }
+});
+
+/* =========================
+   التحدي الطبي
+========================= */
+
+const quizQuestions = [
+  {
+    q:"ما العضو المسؤول عن ضخ الدم إلى أنحاء الجسم؟",
+    options:["الرئتان","القلب","الكبد","المعدة"],
+    answer:1,
+    explain:"القلب يضخ الدم عبر الأوعية الدموية إلى أنحاء الجسم."
+  },
+  {
+    q:"ما الغاز الذي يحتاجه الجسم في عملية التنفس الخلوي؟",
+    options:["النيتروجين","ثاني أكسيد الكربون","الأكسجين","الهيدروجين"],
+    answer:2,
+    explain:"الأكسجين مهم لإنتاج الطاقة في معظم خلايا الجسم."
+  },
+  {
+    q:"كم عدد حجرات القلب عند الإنسان؟",
+    options:["حجرتان","ثلاث حجرات","أربع حجرات","خمس حجرات"],
+    answer:2,
+    explain:"يتكون القلب من أذينين وبطينين."
+  },
+  {
+    q:"أي عضو ينتج الإنسولين؟",
+    options:["البنكرياس","الطحال","الكلى","الرئة"],
+    answer:0,
+    explain:"خلايا بيتا في البنكرياس تنتج هرمون الإنسولين."
+  },
+  {
+    q:"ما الوحدة الأساسية التي يتكون منها جسم الإنسان؟",
+    options:["النسيج","العضو","الخلية","الجهاز"],
+    answer:2,
+    explain:"الخلية هي الوحدة الأساسية للتركيب والوظيفة في الكائنات الحية."
+  },
+  {
+    q:"ما الجزء الذي يحمي الدماغ؟",
+    options:["القفص الصدري","الجمجمة","الحوض","لوح الكتف"],
+    answer:1,
+    explain:"عظام الجمجمة تحيط بالدماغ وتحميه."
+  },
+  {
+    q:"أي عضو مسؤول بصورة أساسية عن ترشيح الدم وتكوين البول؟",
+    options:["القلب","الكلى","المعدة","المرارة"],
+    answer:1,
+    explain:"الكلى ترشّح الدم وتساعد في تنظيم الماء والأملاح وإنتاج البول."
+  },
+  {
+    q:"ما اسم خلايا الدم التي تساعد في مقاومة العدوى؟",
+    options:["خلايا الدم البيضاء","خلايا الدم الحمراء","الصفائح فقط","الخلايا الدهنية"],
+    answer:0,
+    explain:"خلايا الدم البيضاء جزء أساسي من جهاز المناعة."
+  },
+  {
+    q:"ما الفيتامين الذي يساعد الجسم على امتصاص الكالسيوم؟",
+    options:["فيتامين C","فيتامين D","فيتامين B1","فيتامين K فقط"],
+    answer:1,
+    explain:"فيتامين D يساعد على امتصاص الكالسيوم من الأمعاء."
+  },
+  {
+    q:"ما اسم العظم الذي يحمي القلب والرئتين معاً؟",
+    options:["عظام الجمجمة","القفص الصدري","عظام اليد","عظام الحوض"],
+    answer:1,
+    explain:"القفص الصدري يحيط بأجزاء مهمة منها القلب والرئتان."
+  },
+  {
+    q:"ما الجزء المسؤول عن تبادل الأكسجين وثاني أكسيد الكربون في الرئتين؟",
+    options:["الحويصلات الهوائية","الحنجرة","البلعوم","الحجاب الحاجز وحده"],
+    answer:0,
+    explain:"تحدث عملية تبادل الغازات عبر جدران الحويصلات الهوائية والشعيرات الدموية."
+  },
+  {
+    q:"أي من التالي يُعد من مكونات الدم المسؤولة عن التجلط؟",
+    options:["الصفائح الدموية","العصارة الصفراوية","اللعاب","السائل الزلالي"],
+    answer:0,
+    explain:"الصفائح الدموية تساعد على تكوين الخثرة وإيقاف النزيف."
+  },
+  {
+    q:"ما اسم أكبر عضو في جسم الإنسان من حيث المساحة؟",
+    options:["الكبد","الجلد","القلب","البنكرياس"],
+    answer:1,
+    explain:"الجلد هو أكبر عضو في جسم الإنسان من حيث المساحة."
+  },
+  {
+    q:"أي جهاز ينقل الإشارات العصبية في الجسم؟",
+    options:["الجهاز الهضمي","الجهاز العصبي","الجهاز البولي","الجهاز اللمفاوي فقط"],
+    answer:1,
+    explain:"الجهاز العصبي ينقل الإشارات ويساعد في تنسيق وظائف الجسم."
+  },
+  {
+    q:"ما وظيفة الهيموغلوبين الأساسية؟",
+    options:["هضم الدهون","نقل الأكسجين في الدم","إنتاج العصارة الصفراوية","تكوين البول"],
+    answer:1,
+    explain:"الهيموغلوبين الموجود في خلايا الدم الحمراء يحمل الأكسجين."
+  },
+  {
+    q:"أين يبدأ الهضم الكيميائي للنشويات بصورة ملحوظة؟",
+    options:["الفم","الأمعاء الغليظة فقط","المريء","المرارة"],
+    answer:0,
+    explain:"إنزيم الأميليز الموجود في اللعاب يبدأ هضم النشويات في الفم."
+  },
+  {
+    q:"ما الجزء الذي يربط العضلة بالعظم؟",
+    options:["الرباط","الوتر","الغضروف المفصلي","العصب"],
+    answer:1,
+    explain:"الأوتار تربط العضلات بالعظام، بينما الأربطة تربط العظام ببعضها."
+  },
+  {
+    q:"أي عضو ينتج العصارة الصفراوية؟",
+    options:["الكبد","القلب","الرئة","المثانة"],
+    answer:0,
+    explain:"الكبد ينتج العصارة الصفراوية التي تساعد في هضم الدهون."
+  },
+  {
+    q:"ما المعدل الطبيعي التقريبي لحرارة الجسم عند كثير من البالغين؟",
+    options:["30 درجة مئوية","37 درجة مئوية تقريباً","42 درجة مئوية","25 درجة مئوية"],
+    answer:1,
+    explain:"37 درجة مئوية قيمة مرجعية تقريبية، والحرارة الطبيعية تختلف حسب الشخص وطريقة القياس."
+  },
+  {
+    q:"ما اسم الأوعية الدموية التي تنقل الدم بعيداً عن القلب؟",
+    options:["الأوردة","الشرايين","الشعيرات اللمفاوية","القنوات الصفراوية"],
+    answer:1,
+    explain:"الشرايين تنقل الدم بعيداً عن القلب، والأوردة تعيده إليه."
+  },
+  {
+    q:"ما الوظيفة الأساسية لكريات الدم الحمراء؟",
+    options:["نقل الغازات التنفسية","إنتاج الهرمونات","هضم الطعام","إنتاج البول"],
+    answer:0,
+    explain:"كريات الدم الحمراء تنقل الأكسجين وتساهم في نقل ثاني أكسيد الكربون."
+  },
+  {
+    q:"أي جزء من الخلية يحتوي عادةً على معظم المادة الوراثية؟",
+    options:["النواة","الغشاء فقط","السيتوبلازم وحده","الجدار الخلوي عند الإنسان"],
+    answer:0,
+    explain:"توجد معظم المادة الوراثية في نواة الخلية البشرية."
+  },
+  {
+    q:"ما اسم المفصل الذي يصل عظم الفخذ بعظم الساق عبر الرضفة في المنطقة الأمامية؟",
+    options:["مفصل الركبة","مفصل الكتف","مفصل الرسغ","مفصل الفك"],
+    answer:0,
+    explain:"الركبة منطقة مفصلية تربط الفخذ بالساق وتضم الرضفة."
+  },
+  {
+    q:"أي من التالي يُعد جزءاً من الجهاز الهضمي؟",
+    options:["المريء","القصبة الهوائية","الحالب","الشريان الأبهر"],
+    answer:0,
+    explain:"المريء ينقل الطعام من البلعوم إلى المعدة."
+  },
+  {
+    q:"ما الوظيفة الرئيسية للصفائح الدموية؟",
+    options:["المساعدة في تخثر الدم","نقل الأكسجين","إفراز الإنسولين","إنتاج الصفراء"],
+    answer:0,
+    explain:"الصفائح الدموية تشارك في إيقاف النزيف وتكوين الخثرة."
+  },
+  {
+    q:"ما اسم الهرمون الذي يساعد على تنظيم مستوى السكر في الدم بخفضه؟",
+    options:["الإنسولين","الأدرينالين فقط","الميلاتونين","الثيروكسين"],
+    answer:0,
+    explain:"الإنسولين يساعد على خفض سكر الدم من خلال تنظيم دخول الغلوكوز إلى الخلايا وتخزينه."
+  },
+  {
+    q:"أي عضو يحتوي على الحويصلات الهوائية؟",
+    options:["الرئتان","الكبد","الكلى","المعدة"],
+    answer:0,
+    explain:"الحويصلات الهوائية توجد في الرئتين وهي موقع مهم لتبادل الغازات."
+  },
+  {
+    q:"ما اسم السائل الذي يحيط بالدماغ والحبل الشوكي ويساعد في حمايتهما؟",
+    options:["السائل الدماغي الشوكي","العصارة المعدية","الصفراء","البلازما وحدها"],
+    answer:0,
+    explain:"السائل الدماغي الشوكي يحيط بالجهاز العصبي المركزي ويساعد على حمايته."
+  },
+  {
+    q:"أي من التالي مثال على عظم طويل؟",
+    options:["عظم الفخذ","عظم القص","عظم الرضفة فقط","عظم من عظام الرسغ"],
+    answer:0,
+    explain:"عظم الفخذ من العظام الطويلة في جسم الإنسان."
+  },
+  {
+    q:"ما الاسم الطبي لارتفاع ضغط الدم؟",
+    options:["فرط ضغط الدم","فقر الدم","نقص سكر الدم","التهاب المفاصل"],
+    answer:0,
+    explain:"فرط ضغط الدم هو المصطلح الطبي لارتفاع ضغط الدم."
+  }
+];
+
+let quizQuestionsRound = [];
+let quizIndex = 0;
+let quizPoints = 0;
+let quizAnswered = false;
+
+function drawQuizWelcome(){
+  $("quizQuestion").textContent = "جاهزة يا دكتورة المستقبل؟ 💗";
+}
+
+function startQuiz(){
+  quizQuestionsRound = [...quizQuestions]
+    .sort(()=>Math.random()-0.5)
+    .slice(0,10);
+
+  quizIndex = 0;
+  quizPoints = 0;
+  quizAnswered = false;
+
+  $("quizScore").textContent = quizPoints;
+  $("quizStartBtn").classList.add("hidden");
+  $("quizNextBtn").classList.add("hidden");
+
+  showQuizQuestion();
+}
+
+function showQuizQuestion(){
+  const question = quizQuestionsRound[quizIndex];
+
+  quizAnswered = false;
+
+  $("quizCounter").textContent =
+    `السؤال ${quizIndex+1} من ${quizQuestionsRound.length}`;
+
+  $("quizProgressBar").style.width =
+    `${(quizIndex/quizQuestionsRound.length)*100}%`;
+
+  $("quizQuestion").textContent = question.q;
+  $("quizOptions").innerHTML = "";
+  $("quizFeedback").textContent = "اختاري الإجابة الصحيحة يا دكتورة 🌷";
+
+  question.options.forEach((option,index)=>{
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = "quiz-option";
+    button.textContent = option;
+
+    button.addEventListener("click",()=>{
+      answerQuestion(index);
+    });
+
+    $("quizOptions").appendChild(button);
+  });
+
+  $("quizNextBtn").classList.add("hidden");
+}
+
+function answerQuestion(selectedIndex){
+  if(quizAnswered) return;
+
+  quizAnswered = true;
+
+  const question = quizQuestionsRound[quizIndex];
+  const buttons = [...$("quizOptions").querySelectorAll("button")];
+
+  buttons.forEach((button,index)=>{
+    button.disabled = true;
+
+    if(index===question.answer){
+      button.classList.add("correct");
+    }
+  });
+
+  if(selectedIndex===question.answer){
+    quizPoints++;
+    $("quizScore").textContent = quizPoints;
+
+    $("quizFeedback").textContent =
+      "إجابة صحيحة! شطارة يا دكتورة 💗 " + question.explain;
+  }else{
+    buttons[selectedIndex].classList.add("wrong");
+
+    $("quizFeedback").textContent =
+      "ما مشكلة، بنتعلم من كل سؤال 🌸 " + question.explain;
+  }
+
+  $("quizProgressBar").style.width =
+    `${((quizIndex+1)/quizQuestionsRound.length)*100}%`;
+
+  $("quizNextBtn").textContent =
+    quizIndex===quizQuestionsRound.length-1
+      ? "عرض النتيجة 🏆"
+      : "السؤال البعده ➜";
+
+  $("quizNextBtn").classList.remove("hidden");
+}
+
+function showQuizResult(){
+  const percentage = quizPoints*10;
+
+  let message;
+
+  if(quizPoints>=9){
+    message = "ممتازة يا دكتورة! نتيجة رائعة 👏💗";
+  }else if(quizPoints>=7){
+    message = "شغل جميل جداً! واصلي المراجعة 🌷";
+  }else if(quizPoints>=5){
+    message = "كويس يا منى، عندك أساس طيب وبتقدري تتحسني أكثر 🩺";
+  }else{
+    message = "كل بداية محتاجة تدريب. راجعي المعلومات وجربي مرة تانية 💪";
+  }
+
+  $("quizQuestion").textContent = "خلص التحدي! 🎉";
+  $("quizOptions").innerHTML = "";
+
+  $("quizFeedback").textContent = "";
+
+  $("quizCounter").textContent = "النتيجة النهائية";
+  $("quizProgressBar").style.width = "100%";
+
+  const result = document.createElement("div");
+  result.className = "quiz-result";
+
+  const heading = document.createElement("h3");
+  heading.textContent = `${quizPoints} من 10`;
+
+  const percent = document.createElement("p");
+  percent.textContent = `نسبة الإجابات الصحيحة: ${percentage}%`;
+
+  const details = document.createElement("p");
+  details.textContent = message;
+
+  result.append(heading,percent,details);
+  $("quizOptions").appendChild(result);
+
+  $("quizNextBtn").classList.add("hidden");
+  $("quizStartBtn").textContent = "جولة جديدة 🔄";
+  $("quizStartBtn").classList.remove("hidden");
+}
+
+$("quizStartBtn").addEventListener("click",startQuiz);
+
+$("quizNextBtn").addEventListener("click",()=>{
+  if(quizIndex<quizQuestionsRound.length-1){
+    quizIndex++;
+    showQuizQuestion();
+  }else{
+    showQuizResult();
+  }
+});
+
+/* تجهيز العرض الأول */
+showVeilQuote(0);
+drawQuizWelcome();
+
+</script>
+</body>
+</html>
