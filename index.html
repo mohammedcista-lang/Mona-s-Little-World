@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#fff1f7">
-<meta name="description" content="مساحة نورا الخاصة للراحة والقراءة والموسيقى واللعب.">
-<title>مساحة الراحة والهدوء | نورا 💗</title>
+<meta name="description" content="مساحة منى الخاصة للراحة والقراءة والموسيقى واللعب.">
+<title>مساحة الراحة والهدوء | منى 💗</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,14 +29,14 @@
 <body>
 <div class="floaties" id="floaties" aria-hidden="true"></div>
 <div class="lock" id="lockScreen"><div class="lock-card">
-  <div class="hero-heart">♥️</div><span class="eyebrow">مكانك الآمن يا نورا</span><h2>مساحة خاصة جداً 💗</h2>
+  <div class="hero-heart">♥️</div><span class="eyebrow">مكانك الآمن يا منى</span><h2>مساحة خاصة جداً 💗</h2>
   <p>خدي نفس عميق، وخلي الدنيا برة شوية. اكتبي المفتاح السري عشان تدخلي مساحتك الهادية.</p>
   <form id="loginForm"><input class="lock-input" id="passInput" type="password" autocomplete="current-password" placeholder="كلمة السر" required><button class="btn" type="submit" style="width:100%;margin-top:10px">افتحي مساحتك ✨</button></form>
   <div class="error" id="errorMsg" role="status"></div><p class="tiny-note">هذا قفل واجهة بسيط وليس حماية حقيقية للملفات.</p>
 </div></div>
 
 <main class="wrap hidden" id="mainContent">
-<header class="hero"><span class="eyebrow">ركن صغير معمول بمحبة 💗</span><div class="hero-heart">♥️</div><h1>مساحة الراحة والهدوء</h1><p>يا نورا، دي مساحة صغيرة ليكِ عشان تفصلي من تعب اليوم، تقرئي شوية، تسمعي أغاني بتحبيها، وتلعبي براحتك. 🐑✨</p></header>
+<header class="hero"><span class="eyebrow">ركن صغير معمول بمحبة 💗</span><div class="hero-heart">♥️</div><h1>مساحة الراحة والهدوء</h1><p>يا منى، دي مساحة صغيرة ليكِ عشان تفصلي من تعب اليوم، تقرئي شوية، تسمعي أغاني بتحبيها، وتلعبي براحتك. 🐑✨</p></header>
 <nav class="nav" aria-label="أقسام الموقع">
 <button class="active" data-section="gameSec">🐑 السخلة</button><button data-section="bookSec">📚 الكتب</button><button data-section="musicSec">🎵 الأغاني</button><button data-section="msgSec">💌 الرسائل</button>
 </nav>
@@ -83,7 +83,7 @@
 <h3 style="font-size:15px;margin:18px 0 8px">🏆 أوسمة منى</h3><div id="achievements"></div>
 </section>
 
-<section class="panel" id="bookSec"><h2>📚 مكتبة نورا الهادئة</h2><p class="sub">اختاري كتاباً لفتحه في تبويب جديد. ملفات PDF لازم تكون في نفس مجلد الموقع.</p><div class="list">
+<section class="panel" id="bookSec"><h2>📚 مكتبة منى الهادئة</h2><p class="sub">اختاري كتاباً لفتحه في تبويب جديد. ملفات PDF لازم تكون في نفس مجلد الموقع.</p><div class="list">
 <a class="list-item" href="./lanak.pdf#view=FitH" target="_blank" rel="noopener"><span>📖 كتاب لأنك الله<small>قراءة وتأمل</small></span><span class="arrow">افتحي الكتاب ↗</span></a>
 <a class="list-item" href="./ahobak.pdf#view=FitH" target="_blank" rel="noopener"><span>💗 كتاب أحبك وكفى<small>صفحات هادئة</small></span><span class="arrow">افتحي الكتاب ↗</span></a>
 <a class="list-item" href="./azazil.pdf#view=FitH" target="_blank" rel="noopener"><span>📘 رواية عزازيل<small>وقت خاص للقراءة</small></span><span class="arrow">افتحي الكتاب ↗</span></a>
@@ -92,20 +92,20 @@
 </div><p class="tiny-note">لو رابط كتاب ما فتح، راجعي اسم الملف وحالة الأحرف في GitHub.</p></section>
 
 <section class="panel" id="musicSec"><h2>🎵 أغاني الحب والروقان</h2><p class="sub">اختاري أغنية من القائمة. المتصفح ممكن يحتاج أول ضغطة منك قبل السماح بالصوت.</p><div class="player">
-<div class="disc" id="disc">🎶</div><div class="track-title" id="playerTitle">اختاري أغنية من القائمة</div><div class="track-artist" id="playerArtist">قائمة نورا الخاصة 💗</div>
+<div class="disc" id="disc">🎶</div><div class="track-title" id="playerTitle">اختاري أغنية من القائمة</div><div class="track-artist" id="playerArtist">قائمة منى الخاصة 💗</div>
 <audio id="audioPlayer" preload="metadata"></audio><input class="progress" id="progressRange" type="range" min="0" max="1000" value="0" aria-label="تقدم الأغنية">
 <div class="time-row"><span id="currentTime">0:00</span><span id="duration">0:00</span></div><div class="player-controls"><button class="icon-btn" id="prevBtn">⏮</button><button class="icon-btn main" id="playPauseBtn">▶</button><button class="icon-btn" id="nextBtn">⏭</button></div><div class="status" id="audioStatus">اختاري أغنية للبدء 🎧</div></div>
 <div class="playlist" id="playlist"><button class="track" data-track="0"><span>🎶 تامر حسني · قادر أكمل</span><span>▶</span></button><button class="track" data-track="1"><span>🎵 لما تكوني</span><span>▶</span></button><button class="track" data-track="2"><span>💖 شيرين عبد الوهاب · مشاعر</span><span>▶</span></button><button class="track" data-track="3"><span>🌟 أحمد سعد · أغنية حب</span><span>▶</span></button></div></section>
 
-<section class="panel" id="msgSec"><h2>💌 صندوق الرسائل الدافئة</h2><p class="sub">كل مرة افتحي رسالة جديدة وخدي منها ابتسامة صغيرة.</p><div class="message-card"><div><div class="message-icon" id="messageIcon">💌</div><div id="dailyMsg">يا نورا، وجودك في الدنيا بيخلّي تفاصيل كتيرة أحلى. خدي يومك بالراحة، وإنتِ تستاهلي كل خير. 💗</div></div></div><button class="btn" id="newMessageBtn" style="width:100%;margin-top:13px">افتحي رسالة جديدة ✉️</button></section>
-<div class="poem">لو طال الليل ودقّ الشوق على الباب<br>هنا واحة راحة بعيدة من زحمة الأسباب<br>سلامٌ في عيون نورا، وسكينة تطمئن الروح 💗</div><footer>صُنع بكل حب لعيون نورا ♥️<br><span>خدي راحتك، المساحة دي ليكِ.</span></footer>
+<section class="panel" id="msgSec"><h2>💌 صندوق الرسائل الدافئة</h2><p class="sub">كل مرة افتحي رسالة جديدة وخدي منها ابتسامة صغيرة.</p><div class="message-card"><div><div class="message-icon" id="messageIcon">💌</div><div id="dailyMsg">يا منى، وجودك في الدنيا بيخلّي تفاصيل كتيرة أحلى. خدي يومك بالراحة، وإنتِ تستاهلي كل خير. 💗</div></div></div><button class="btn" id="newMessageBtn" style="width:100%;margin-top:13px">افتحي رسالة جديدة ✉️</button></section>
+<div class="poem">لو طال الليل ودقّ الشوق على الباب<br>هنا واحة راحة بعيدة من زحمة الأسباب<br>سلامٌ في عيون منى، وسكينة تطمئن الروح 💗</div><footer>صُنع بكل حب لعيون منى ♥️<br><span>خدي راحتك، المساحة دي ليكِ.</span></footer>
 </main>
 
 <audio id="sheepSound" src="./sheep.mp3" preload="auto"></audio>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
-const PASSWORDS=["mona2006/9/30","nora2008,1,26"]; // يقبل المفتاح الذي استُخدم سابقاً في النسخ المتداولة.
+const PASSWORDS=["mona2006/9/30"];
 const tracks=[
  {src:"Tamerd.mp3",title:"قادر أكمل",artist:"تامر حسني ♥️"},
  {src:"Lmatkony.mp3",title:"لما تكوني",artist:"أغنية رومانسية ✨"},
@@ -113,21 +113,21 @@ const tracks=[
  {src:"Ahmedsaad.mp3",title:"أغنية حب مميزة",artist:"أحمد سعد 🌟"}
 ];
 const messages=[
-"يا نورا، ابتسامتك بتستاهل كل لحظة راحة في الدنيا. خدي نفس عميق وافتكري إنك قدّها وقدود. 💗",
+"يا منى، ابتسامتك بتستاهل كل لحظة راحة في الدنيا. خدي نفس عميق وافتكري إنك قدّها وقدود. 💗",
 "مهما كان اليوم طويل، ما تنسي تدي نفسك شوية حنية وراحة. إنتِ بتعملي الكتير وده براهو يستاهل الفخر. 🌷",
 "أتمنى ليكِ يوم مليان سكينة، وضحكة سمحة، وحاجات صغيرة تفرّح قلبك. 🌸",
 "لو الدنيا بقت زحمة، خدي استراحة صغيرة. ما مطلوب منك تكوني قوية كل لحظة. 💕",
-"رسالة ليكِ يا نورا: وجودك جميل، وضحكتك بتخلّي التفاصيل العادية مميزة. ✨",
+"رسالة ليكِ يا منى: وجودك جميل، وضحكتك بتخلّي التفاصيل العادية مميزة. ✨",
 "اشربي موية، ارتاحي شوية، وافتكري إنك تستاهلي اللطف زي ما بتديه للناس. 🌸"
 ];
-$("loginForm").addEventListener("submit",e=>{e.preventDefault();if(PASSWORDS.includes($("passInput").value)){$("lockScreen").classList.add("hidden");$("mainContent").classList.remove("hidden");}else{$("errorMsg").textContent="المفتاح ما صحيح، جرّبي تاني يا نورا 💗";$("passInput").select();}});
+$("loginForm").addEventListener("submit",e=>{e.preventDefault();if(PASSWORDS.includes($("passInput").value)){$("lockScreen").classList.add("hidden");$("mainContent").classList.remove("hidden");}else{$("errorMsg").textContent="المفتاح ما صحيح، جرّبي تاني يا منى 💗";$("passInput").select();}});
 document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active",p.id===b.dataset.section));}));
 ["♥","♡","✦","🌸","♥","✧","♡"].forEach((s,i)=>{const e=document.createElement("span");e.className="floaty";e.textContent=s;e.style.left=(5+i*14)+"%";e.style.animationDuration=(13+i*2)+"s";e.style.animationDelay=(-i*2.1)+"s";e.style.fontSize=(15+i%3*8)+"px";$("floaties").appendChild(e);});
 
 /* مشغل الأغاني */
 const audio=$("audioPlayer");let trackIndex=-1;
 const fmt=t=>!Number.isFinite(t)?"0:00":`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,"0")}`;
-function updateTrack(){document.querySelectorAll(".track").forEach((b,i)=>b.classList.toggle("active",i===trackIndex));$("playerTitle").textContent=trackIndex<0?"اختاري أغنية من القائمة":tracks[trackIndex].title;$("playerArtist").textContent=trackIndex<0?"قائمة نورا الخاصة 💗":tracks[trackIndex].artist;}
+function updateTrack(){document.querySelectorAll(".track").forEach((b,i)=>b.classList.toggle("active",i===trackIndex));$("playerTitle").textContent=trackIndex<0?"اختاري أغنية من القائمة":tracks[trackIndex].title;$("playerArtist").textContent=trackIndex<0?"قائمة منى الخاصة 💗":tracks[trackIndex].artist;}
 async function selectTrack(i){trackIndex=(i+tracks.length)%tracks.length;audio.src=tracks[trackIndex].src;audio.load();updateTrack();$("audioStatus").textContent="جاري تحميل الأغنية…";try{await audio.play();}catch{$("audioStatus").textContent="تعذّر التشغيل. راجعي اسم ملف الأغنية ومكانه.";}}
 $("playlist").addEventListener("click",e=>{const b=e.target.closest("[data-track]");if(b)selectTrack(+b.dataset.track);});
 $("playPauseBtn").addEventListener("click",async()=>{if(trackIndex<0)return selectTrack(0);if(audio.paused){try{await audio.play();}catch{$("audioStatus").textContent="تعذّر التشغيل.";}}else audio.pause();});
@@ -201,11 +201,10 @@ $("photoBtn").addEventListener("click",()=>{
  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600"><defs><linearGradient id="g" x2="0" y2="1"><stop stop-color="#c9e9fa"/><stop offset=".55" stop-color="#a9d98d"/><stop offset="1" stop-color="#76bd70"/></linearGradient><radialGradient id="wool" cx="35%" cy="25%"><stop stop-color="#fff"/><stop offset="1" stop-color="#e9e5e2"/></radialGradient><linearGradient id="face" x2="0" y2="1"><stop stop-color="#fff5ed"/><stop offset="1" stop-color="#e9d9d1"/></linearGradient></defs><rect width="600" height="600" rx="35" fill="url(#g)"/><text x="300" y="85" text-anchor="middle" font-size="42">☀️ 🌼 🌿</text><g transform="translate(190 120) scale(1.05)">${art}</g><text x="300" y="520" text-anchor="middle" font-size="36" font-family="sans-serif" fill="#5b3860">${pet.name} 🐑</text><text x="300" y="565" text-anchor="middle" font-size="22" font-family="sans-serif" fill="#5b3860">بحبك يا موني ❤️</text></svg>`;
  const blob=new Blob([svg],{type:"image/svg+xml"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="mona-sheep-photo.svg";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);bubble("اتصورت! احتفظي بالصورة يا موني 📸");
 });
-/* الوقت يمر ببطء حتى تحس السخلة باهتمام صاحبتها، مع حفظ الحالة. */
 const elapsed=Math.min(12,Math.floor((Date.now()-(pet.lastSeen||Date.now()))/3600000));
 if(elapsed>0){pet.hunger=clamp(pet.hunger-elapsed*2);pet.clean=clamp(pet.clean-elapsed);}
 setInterval(()=>{if(!pet.sleeping){pet.hunger=clamp(pet.hunger-.6);pet.clean=clamp(pet.clean-.15);if(pet.hunger<25){bubble("مونيييي، أنا جعانة 🥺");}else if(pet.love<20){bubble("إنتِ نسيتيني ولا شنو؟ 😭");}}else{pet.hunger=clamp(pet.hunger-.25);pet.love=clamp(pet.love+0.2);}updateStats();},60000);
 updateStats();
 </script>
 </body>
-</html
+</html>
