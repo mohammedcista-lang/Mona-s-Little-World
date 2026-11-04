@@ -252,11 +252,57 @@ footer{text-align:center;color:#9b829a;font-size:12px;padding:14px;line-height:2
 @keyframes bubbleIn{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
 .lamb-world.walking .lamb-scene{animation:meadowMove 4s ease-in-out}
 @keyframes meadowMove{0%{transform:translateX(0)}25%{transform:translateX(60px)}50%{transform:translateX(-55px)}75%{transform:translateX(35px)}100%{transform:translateX(0)}}
+
+/* الأيقونات الأربع الرئيسية والقوائم الفرعية تحت لولو مباشرة */
+.lamb-main-menu {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 14px 0;
+}
+.lamb-menu-btn {
+  border: 1px solid #f1d7e6;
+  border-radius: 16px;
+  padding: 12px 4px;
+  background: #fff8fc;
+  color: #68466a;
+  font-weight: 800;
+  font-size: 11px;
+  text-align: center;
+  transition: .2s;
+}
+.lamb-menu-btn span {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.lamb-menu-btn.active-menu {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 5px 15px rgba(217, 75, 145, 0.25);
+}
+.lamb-submenu-panel {
+  display: none;
+  background: #fffafd;
+  border: 1px solid #f4dce9;
+  border-radius: 18px;
+  padding: 14px;
+  margin-top: 10px;
+  animation: appear 0.25s ease;
+}
+.lamb-submenu-panel.active-sub {
+  display: grid;
+  gap: 8px;
+}
+
+/* عدادات الحالات في الأسفل */
 .lamb-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:15px 0}
 .stat-box{background:#fff8fc;border:1px solid #f1d8e8;border-radius:14px;padding:10px}
 .stat-title{display:flex;justify-content:space-between;font-size:12px;font-weight:800;margin-bottom:7px}
 .stat-bar{height:9px;border-radius:20px;background:#f1e5ee;overflow:hidden}
 .stat-fill{height:100%;width:70%;border-radius:20px;background:linear-gradient(90deg,#ed77aa,#a080e8);transition:width .3s}
+
 .lamb-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
 .lamb-action{
   border:1px solid #f1d7e6;border-radius:15px;padding:12px 5px;
@@ -349,7 +395,7 @@ footer{text-align:center;color:#9b829a;font-size:12px;padding:14px;line-height:2
   <button data-section="veilSec">🖤 همسات النقاب</button>
 </nav>
 
-<section class="panel active" id="gameSec">
+<section class="panel" id="gameSec">
   <h2>🩺 تحدّي منى الطبي</h2>
   <p class="sub">أسئلة طبية عامة للتعلّم والمراجعة، في أجواء خفيفة ولطيفة. كل جولة فيها 10 أسئلة.</p>
   <div class="quiz-score">
@@ -368,10 +414,11 @@ footer{text-align:center;color:#9b829a;font-size:12px;padding:14px;line-height:2
 </section>
 
 <!-- لعبة السخلة المطورة -->
-<section class="panel" id="lambSec">
+<section class="panel active" id="lambSec">
   <h2>🐑 مملكة لولو الصغيرة</h2>
   <p class="sub">منمن عندها سخلة صغيرة اسمها لولو! أطعميها والعبي معاها واهتمي بيها، وخليها أسعد سخلة في المرعى. 💗</p>
 
+  <!-- 1. صورة لولو ومملكتها في الأعلى -->
   <div class="lamb-world" id="lambWorld">
     <div class="lamb-sun"></div>
     <div class="lamb-cloud">☁️</div>
@@ -482,6 +529,77 @@ footer{text-align:center;color:#9b829a;font-size:12px;padding:14px;line-height:2
 
   <div class="status" id="lambStatus">مباااع! منمن، أنا مستنياكِ 🥺❤️</div>
 
+  <!-- 2. الأيقونات الأربع الرئيسية تحت صورة لولو مباشرة -->
+  <div class="lamb-main-menu">
+    <button class="lamb-menu-btn active-menu" onclick="switchLambSubMenu('careSub', this)">
+      <span>🍎</span>العناية
+    </button>
+    <button class="lamb-menu-btn" onclick="switchLambSubMenu('playSub', this)">
+      <span>🎾</span>اللعب
+    </button>
+    <button class="lamb-menu-btn" onclick="switchLambSubMenu('styleSub', this)">
+      <span>🎀</span>المظهر
+    </button>
+    <button class="lamb-menu-btn" onclick="switchLambSubMenu('funSub', this)">
+      <span>📸</span>ذكريات
+    </button>
+  </div>
+
+  <!-- 1. قائمة العناية -->
+  <div class="lamb-submenu-panel active-sub" id="careSub">
+    <p class="sub" style="margin:0 0 8px; font-size:12px;">تغذية ونظافة وراحة لولو 🌿</p>
+    <div class="lamb-actions" style="margin-top:0;">
+      <button class="lamb-action" onclick="washLamb()"><span>🛁</span>حمام نظافة</button>
+      <button class="lamb-action" onclick="sleepLamb()"><span>🌙</span>النوم والراحة</button>
+      <button class="lamb-action" onclick="petLamb()"><span>💕</span>دلّعيها بحب</button>
+    </div>
+    <div class="carrot-drop" id="carrotDrop" style="margin-top:8px;">
+      🥕 اسحبي الأكل أو اضغطي عليه:
+      <div class="lamb-food" style="margin-top:6px;">
+        <button class="draggable-food" data-food="carrot">🥕 جزرة</button>
+        <button class="draggable-food" data-food="vegetable">🥬 خضار</button>
+        <button class="draggable-food" data-food="grass">🌿 عشب</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. قائمة اللعب والاستكشاف -->
+  <div class="lamb-submenu-panel" id="playSub">
+    <p class="sub" style="margin:0 0 8px; font-size:12px;">حركة ومغامرات في المرعى 🌳</p>
+    <div class="lamb-actions" style="margin-top:0;">
+      <button class="lamb-action" onclick="playLamb()"><span>🎾</span>اللعب بالكرة</button>
+      <button class="lamb-action" onclick="walkLamb()"><span>🌳</span>استكشاف المرعى</button>
+      <button class="lamb-action" onclick="jumpLamb()"><span>🐇</span>نطّي عالي</button>
+    </div>
+  </div>
+
+  <!-- 3. قائمة المظهر -->
+  <div class="lamb-submenu-panel" id="styleSub">
+    <p class="sub" style="margin:0 0 8px; font-size:12px;">أزياء وتغييرات لطيفة 🎀</p>
+    <div class="outfit-label" id="outfitLabel" style="margin:4px 0;">الطوق الحالي: وردي 🎀</div>
+    <div class="lamb-actions" style="margin-top:0;">
+      <button class="lamb-action" onclick="dressLamb()"><span>🎀</span>تغيير الطوق</button>
+      <button class="lamb-action" onclick="renameLamb()"><span>✏️</span>تغيير الاسم</button>
+      <button class="lamb-action" onclick="resetLamb()"><span>🔄</span>إعادة البداية</button>
+    </div>
+  </div>
+
+  <!-- 4. قائمة الذكريات والأصوات -->
+  <div class="lamb-submenu-panel" id="funSub">
+    <p class="sub" style="margin:0 0 8px; font-size:12px;">أجمل اللحظات مع لولو 📸</p>
+    <div class="lamb-actions" style="margin-top:0;">
+      <button class="lamb-action" onclick="photoLamb()"><span>📸</span>تصوير مضحك</button>
+      <button class="lamb-action" onclick="speakLamb()"><span>🐑</span>اسمعي صوتها</button>
+    </div>
+  </div>
+
+  <div class="lamb-photo" id="lambPhoto">
+    <strong>📸 صورة لولو التذكارية</strong>
+    <div id="photoPreview"></div>
+    <button class="btn soft" onclick="downloadLambPhoto()">⬇️ حفظ الصورة</button>
+  </div>
+
+  <!-- 3. عدادات الحالات في الأسفل -->
   <div class="lamb-stats">
     <div class="stat-box">
       <div class="stat-title"><span>🍎 الشبع</span><span id="hungerText">75%</span></div>
@@ -507,42 +625,6 @@ footer{text-align:center;color:#9b829a;font-size:12px;padding:14px;line-height:2
       <div class="stat-title"><span>🌿 العشب المجموع</span><span id="grassText">0</span></div>
       <div class="stat-bar"><div class="stat-fill" id="grassBar"></div></div>
     </div>
-  </div>
-
-  <div class="carrot-drop" id="carrotDrop">
-    🥕 اسحبي الجزرة وضعيها هنا أو فوق لولو عشان تأكلها!
-    <div class="lamb-food">
-      <button class="draggable-food" data-food="carrot">🥕 جزرة</button>
-      <button class="draggable-food" data-food="vegetable">🥬 خضار</button>
-      <button class="draggable-food" data-food="grass">🌿 عشب</button>
-    </div>
-    <small>تقدري تسحبي الأكل بإصبعك من الموبايل كمان.</small>
-  </div>
-
-  <div class="outfit-label" id="outfitLabel">الطوق الحالي: وردي 🎀</div>
-
-  <h3>🎮 الأنشطة والمغامرات</h3>
-  <div class="lamb-actions">
-    <button class="lamb-action" onclick="playLamb()"><span>🎾</span>العبي معاها</button>
-    <button class="lamb-action" onclick="petLamb()"><span>💕</span>دلّعيها</button>
-    <button class="lamb-action" onclick="washLamb()"><span>🛁</span>حمّام</button>
-    <button class="lamb-action" onclick="walkLamb()"><span>🌳</span>استكشاف المرعى</button>
-    <button class="lamb-action" onclick="sleepLamb()"><span>🌙</span>النوم</button>
-    <button class="lamb-action" onclick="dressLamb()"><span>🎀</span>تغيير الطوق</button>
-    <button class="lamb-action" onclick="jumpLamb()"><span>🐇</span>نطّي</button>
-    <button class="lamb-action" onclick="photoLamb()"><span>📸</span>تصوير مضحك</button>
-    <button class="lamb-action" onclick="speakLamb()"><span>🐑</span>اسمعي صوتها</button>
-  </div>
-
-  <div class="lamb-controls">
-    <button class="btn secondary" onclick="renameLamb()">✏️ تغيير اسمها</button>
-    <button class="btn soft" onclick="resetLamb()">🔄 إعادة البداية</button>
-  </div>
-
-  <div class="lamb-photo" id="lambPhoto">
-    <strong>📸 صورة لولو التذكارية</strong>
-    <div id="photoPreview"></div>
-    <button class="btn soft" onclick="downloadLambPhoto()">⬇️ حفظ الصورة</button>
   </div>
 
   <h3>🏆 إنجازات لولو</h3>
@@ -660,7 +742,7 @@ $("loginForm").addEventListener("submit",function(e){
   }
 });
 
-/* التنقل */
+/* التنقل بين الأقسام الرئيسية للموقع */
 document.querySelectorAll(".nav button").forEach(button=>{
   button.addEventListener("click",()=>{
     document.querySelectorAll(".nav button").forEach(btn=>btn.classList.toggle("active",btn===button));
@@ -668,7 +750,19 @@ document.querySelectorAll(".nav button").forEach(button=>{
   });
 });
 
-/* الخلفية */
+/* دالة تبديل القوائم الفرعية للعبة لولو */
+function switchLambSubMenu(subId, btnElement) {
+  document.querySelectorAll('.lamb-submenu-panel').forEach(panel => {
+    panel.classList.remove('active-sub');
+  });
+  document.querySelectorAll('.lamb-menu-btn').forEach(btn => {
+    btn.classList.remove('active-menu');
+  });
+  $(subId).classList.add('active-sub');
+  btnElement.classList.add('active-menu');
+}
+
+/* الخلفية المتحركة */
 const floaties=$("floaties");
 ["♥","♡","✦","🌸","♥","✧","♡"].forEach((symbol,i)=>{
   const el=document.createElement("span");
@@ -1238,4 +1332,4 @@ showVeilQuote(0);
 drawQuizWelcome();
 </script>
 </body>
-                                                 </html>
+</html>
